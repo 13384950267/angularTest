@@ -1,0 +1,36 @@
+
+.login-top{
+    height: 360px;
+    background: url(../../images/login-bg.jpg) no-repeat top center;
+}
+.login-top .text{
+    color: #fff;
+    text-align: center;
+    padding-top: 160px;
+}
+.login-top .text h2{
+    font-size: 30px;
+    line-height: 44px;
+}
+.login-top .text p{
+    font-size: 13px;
+}
+.login-main{
+    width: 800px;
+    margin: 60px auto 0;
+}
+.login-main .form-horizontal {
+    width: auto;
+}
+.login-main .form-group{
+    margin-bottom: 20px;
+}
+.login-main .form-group label{
+    line-height: 30px;
+}
+.login-main .form-group .form-control{
+    font-size: 14px;
+}
+.login-main .tips{
+    padding: 5px 0 ;
+}

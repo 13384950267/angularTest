@@ -1,0 +1,13 @@
+<div ng-include="'views/public/header.html'"></div>
+<div class="main-box">
+	<div class="inner">
+	    <div ui-view>
+	    </div>
+	</div>
+</div>
+<div class="leftbar">
+    <ul class="list-unstyled">
+        <li><a ui-sref-active='active' ui-sref="system.list">管理员列表</a></li>
+        <li><a ui-sref-active='active' ui-sref="system.add">添加管理员</a></li>
+    </ul>
+</div>

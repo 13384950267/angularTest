@@ -1,0 +1,65 @@
+<div class="box-top clearfix">
+    <h2 class="bread"><a href="/dietitianList">营养师管理</a>>营养师列表</h2>
+</div>
+<div class="form-filter">
+    <form ng-submit="" class="form-inline">
+        <div class="form-group">
+            <p class="form-control-static">筛选：</p>
+        </div>
+        <div class="form-group">
+            <select name="diet_type" class="form-control" ng-model="diet_type" ng-change="filterData('diet_type',diet_type)">
+                <option value="">全部类型</option>
+                <option value="1">儿童</option>
+                <option value="2">孕妇</option>
+                <option value="3">老年</option>
+            </select>
+            <select name="diet_level" class="form-control" ng-model="diet_level" ng-change="filterData('diet_level',diet_level)">
+                <option value="">全部级别</option>
+                <option value="0">高级营养师</option>
+                <option value="1">普通营养师</option>
+            </select>
+            <select name="status" class="form-control" ng-model="status" ng-change="filterData('status',status)">
+                <option value="">全部</option>
+                <option value="1">可用</option>
+                <option value="0">不可用</option>
+            </select>
+        </div>
+    </form>
+</div>
+<div class="box-content">
+    <table class="table table-bordered">
+        <tr>
+        	<th width="100">营养师ID</th>
+        	<th width="16%">营养师名</th>
+        	<th>昵称</th>
+        	<th>类型</th>
+        	<th>级别</th>
+        	<th width="16%">所属会员</th>
+        	<th width="240px">操作</th>
+        </tr>
+        <tr ng-if='data.codes[0]!=0'>
+        	<td colspan="7" class="table-empty">{{data.messages[0]}}</td>
+        </tr>
+        <tr ng-if='data.data.data.length==0'>
+        	<td colspan="7" class="table-empty">暂无数据</td>
+        </tr>
+        <tr ng-repeat="item in data.data.data">
+            <td>{{item.id}}</td>
+            <td>{{item.username}}</td>
+            <td>{{item.diet_name}}</td>
+            <td>{{item.diet_type}}</td>
+            <td>
+            	<span ng-if="item.diet_level==0">高级管理员</span>
+            	<span ng-if="item.diet_level==1">普通管理员</span>
+            </td>
+            <td>{{item.diet_user}}</td>
+            <td class="control">
+            	<a ui-sref="dietitian.detail({'id':item.id,'type':1})">编辑</a>
+            	<span class="text-danger" ng-if="item.status==0">不可用</span>
+            	<span  ng-if="item.status==1">不可用</span>
+            	<a ui-sref="dietitian.detail({'id':item.id,'type':2})">详情</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<pagination></pagination>

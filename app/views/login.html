@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="../styles/login.css"/>
+<div class="login-top">
+    <div class="text">
+        <h2>乐食智能餐盒综合版管理后台</h2>
+        <p>LESHI food management system</p>
+    </div>
+</div>
+<div class="login-main">
+    <form class="form-horizontal" name="login" novalidate="true" ng-submit="loginForm()">
+        <div class="form-group" ng-class="{'has-error':login.email.$invalid&&!login.email.$pristine}">
+            <label for="inputEmail3" class="col-sm-2 control-label">用户名：</label>
+            <div class="col-sm-7">
+                <input type="email" name="email" class="form-control input-lg" placeholder="请输入用邮箱"  required ng-model="formData.email">
+            </div>
+            <div class="col-sm-3 " ng-show="login.email.$invalid&&!login.email.$pristine"><span class="help-block">请输入正确的邮箱</span></div>
+        </div>
+        <div class="form-group" ng-class="{'has-error':login.password.$error.maxlength ||login.password.$error.minlength}">
+            <label for="inputPassword3" class="col-sm-2 control-label">密码：</label>
+            <div class="col-sm-7">
+                <input type="password" name="password" class="form-control input-lg"  placeholder="请输入密码" required ng-model="formData.password" ng-minlength="6" ng-maxlength="20"/>
+            </div>
+            <div class="col-sm-3 tips" ng-show="login.password.$error.maxlength ||login.password.$error.minlength"><span class="help-block">密码必须为6-20位</span></div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-7">
+                <input type="submit" class="btn btn-primary btn-block btn-lg" ng-disabled="login.$invalid" value="登录" />
+            </div>
+        </div>
+    </form>
+</div>

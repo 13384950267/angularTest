@@ -1,0 +1,25 @@
+<h3>管理员列表</h3>
+<div ng-controller="systemlistCtrl">
+	<table class="table table-bordered"  >
+		<tr>
+			<th>ID</th>
+			<th>管理员账号</th>
+			<th>管理员级别</th>
+			<th>创建时间</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-if="data.codes[0]==0" ng-repeat="item in data.data.list">
+			<td>{{item.id}}</td>
+			<td>{{item.email}}</td>
+			<td>{{item.is_super}}</td>
+			<td>{{item.created_at}}</td>
+			<td>
+				<a ui-sref="system.systemDetail">详情</a>
+			</td>
+		</tr>
+		<tr ng-if='data.codes[0]!=0'>
+			<td colspan="5" class="table-empty">{{data.messages[0]}}</td>
+		</tr>
+	</table>
+</div>
+<pagination></pagination>

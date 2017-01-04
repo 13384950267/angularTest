@@ -1,0 +1,13 @@
+<div ng-include="'views/public/header.html'"></div>
+<div class="main-box">
+	<div class="inner">
+	    <div ui-view>
+	    </div>
+	</div>
+</div>
+<div class="leftbar">
+    <ul class="list-unstyled">
+        <li><a ui-sref-active='active' ui-sref="dietitian.list">营养师列表</a></li>
+        <li><a ui-sref-active='active' ui-sref="dietitian.unresttime">不可分配时间</a></li>
+    </ul>
+</div>
